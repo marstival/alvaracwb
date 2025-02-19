@@ -54,7 +54,7 @@ grid = html.Div([
     
     html.Div(id='signal-load-atividades', style={'display': 'none'}), 
     overview,
-    dbc.Card(children=['Alvarás novos e encerrados a partir de jan/2017.',
+    dbc.Card(children=['Alvarás novos e encerrados ao longo do tempo.',
                        radioitems,
                        dcc.Loading(children=[
                            dcc.Graph(id='g_historico',
