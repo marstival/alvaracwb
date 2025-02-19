@@ -61,12 +61,7 @@ grid = html.Div([
                                  config={'displayModeBar': False},
                                  animate=False,
                                  #figure=go.Figure()
-                                 ),
-                            dbc.Alert("Note que a variação entre jun/2018 a fev/2019, destacada em roxo, \
-                                parece ser uma falha nas extrações disponibilizadas no Portal de Dados Abertos.\
-                                Parte dos alvarás encerrados neste período não refletiu na base de dados e 'acumularam' no mês de fev/2019.\
-                                Consulte a página 'Sobre' no menu para mais informações.",
-                                 color='warning', dismissable=True)
+                                 )
                        ]),
                        ], body=True, className="mX-3"),
     dbc.Row([
