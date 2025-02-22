@@ -1,4 +1,14 @@
-staging/*
+staging/download/*
+
+staging/geo/*
+!staging/geo/enderecos_geocoded.parquet
+
+staging/stages/*
+!staging/geo/enderecos_geocoded.parquet
+
 dataset/*
+!dataset/base_alvaras_curitiba.parquet
+!dataset/CNAE_Subclasses_2_3_tabular.parquet
+
 *.token
 */__pycache__/
