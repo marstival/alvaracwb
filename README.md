@@ -9,8 +9,6 @@ A origem da informação é a base disponibilizada pela Prefeitura Municipal de 
 
 [Dicionários de dados (original)](http://dadosabertos.c3sl.ufpr.br/curitiba/BaseAlvaras/Alvaras-Dicionario_de_Dados.csv)
 
-## Produtos ##
-Este repositório contém os seguintes artefatos.
 
 |||
 |------|:---|
@@ -24,18 +22,15 @@ A licença do código é [LGPL3](https://www.gnu.org/licenses/lgpl-3.0.en.html) 
 
 #### Dataset
 
-A preparação dos dados passa por diversos estágios com o objetivo de criar um arquivo mais adequado para análises. 
-
 O arquivo final consolida e agrupa os arquivos da base histórica, e inclui algumas colunas adicionais conforme abaixo. Além das colunas originais descritas no [Dicionários de dados (original)](http://dadosabertos.c3sl.ufpr.br/curitiba/BaseAlvaras/Alvaras-Dicionario_de_Dados.csv).
 
 |||
 |---|---|
 |Campo (novo) | Descrição dos campos adicionados ao dataset |
-|*REFERENCIA_min*| Data da primeira ocorrência nas extrações (a partir de 2017-01-01); Todos com REFERENCIA_min == 2017-01-01 correspondem ao estoque de alvarás ativos em 2017-01-01; A partir desta data a REFERENCIA_min indica a data (mês) no qual o alvará passa a estar ativo (e portanto incluído nas extrações). Pode-se combinar esta informação com a DATA_EMISSAO |
+|*REFERENCIA_min*| Data da primeira ocorrência nas extrações;|
 |*REFERENCIA_max*| última ocorrência nas extrações mensais. Se REFERENCIA_max == "data da última extração", significa que está ainda ativo; Caso contrário, representa a data em que esteve ativo pela última vez (considero como data, ou mês, em que deixou de ter uma alvará ativo) |
 |ATIVO| bool - apenas simplifica as consultas; True se REFERENCIA_max == "data da última extração", caso contrário False |
-|*CNAE*| código CNAE - inferido pela descrição da atividade, portanto não está preenchido para 100% dos casos.  |
-|*point*| Localização geográfica do endereço (tupla). Obs: campo string com o Dict, é preciso usar eval() ou astype(object) para obter a tupla que representa a posição lat/long.  Os campos *address* e *location* são intermediários usado no *basealvaras_geocode.py* |
+|*point*| Localização geográfica do endereço (tupla). Além dos campos *address* e *location* |
 |*TEMPO_ATIVIDADE*| Tempo de atividade em meses, considera a diferença da data de início da atividade (*INICIO_ATIVIDADE*) e a data em que o alavará deixou de estar ativo (*REFERENCIA_max*)  |
 
 
@@ -46,6 +41,11 @@ Para rodar é necessário um serviço Redis. O docker-compose.yml inicia o redis
 
 É necessário prover um [token do Mapbox](https://account.mapbox.com/access-tokens/). Crie um arquivo .mapbox.token na pasta alvaradash/src com o token (apenas o token). 
 
-A aplicação lê os dados disponíveis no dataset, e mantem uma visão dos dados em um serviço *Redis*. 
-A variável de ambiente *HOME_BUCKET* pode ser usada para carregar o arquivo de outro local (ver docker-compose.yml)
-Obs: pode mudar o local do dataset, mas o nome do arquivo `base_alvaras_curitiba.parquet` na pasta indicada não pode ser alterado.
+#### Screenshot  
+
+<object data="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf" type="application/pdf" width="700px" height="1200px">
+    <embed src="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
