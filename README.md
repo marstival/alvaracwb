@@ -41,11 +41,13 @@ Para rodar é necessário um serviço Redis. O docker-compose.yml inicia o redis
 
 É necessário prover um [token do Mapbox](https://account.mapbox.com/access-tokens/). Crie um arquivo .mapbox.token na pasta alvaradash/src com o token (apenas o token). 
 
-#### Screenshot  
+#### Screenshot
+[View Dashboard Screenshot](https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf)
 
-<object data="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf" type="application/pdf" width="700px" height="1200px">
-    <embed src="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+<embed src="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf" type="application/pdf" />
+
+or
+
+![screenshot](https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf)
+
 
