@@ -24,7 +24,7 @@ A licença do código é [LGPL3](https://www.gnu.org/licenses/lgpl-3.0.en.html) 
 
 #### Dataset
 
-A preparação dos dados passa por diversos estágios com o objetivo de criar um arquivo mais adequado para análises. Consulte [wrangling/Readme.md](wrangling/Readme.md) para mais informações sobre as transformações ralizadas a partir da base histórica original.
+A preparação dos dados passa por diversos estágios com o objetivo de criar um arquivo mais adequado para análises. 
 
 O arquivo final consolida e agrupa os arquivos da base histórica, e inclui algumas colunas adicionais conforme abaixo. Além das colunas originais descritas no [Dicionários de dados (original)](http://dadosabertos.c3sl.ufpr.br/curitiba/BaseAlvaras/Alvaras-Dicionario_de_Dados.csv).
 
@@ -38,20 +38,14 @@ O arquivo final consolida e agrupa os arquivos da base histórica, e inclui algu
 |*point*| Localização geográfica do endereço (tupla). Obs: campo string com o Dict, é preciso usar eval() ou astype(object) para obter a tupla que representa a posição lat/long.  Os campos *address* e *location* são intermediários usado no *basealvaras_geocode.py* |
 |*TEMPO_ATIVIDADE*| Tempo de atividade em meses, considera a diferença da data de início da atividade (*INICIO_ATIVIDADE*) e a data em que o alavará deixou de estar ativo (*REFERENCIA_max*)  |
 
-Cenários para exemplificar o significado dos campos após a consolidação:
-
-* REFERENCIA_min == 2020-08-01  alvarás que passaram a figurar na base em agosto de 2020 
-* REFERENCIA_min == 2017-01-01 -> como 2017-01-01 é o primeiro arquivo historico, corresponde a todos os alvarás que passaram a figurar na base em qualquer data anterior e que continuavam ativos em 2017)
-* REFERENCIA_max == 2020-08-01 -> alvarás que estavam ativos até este mês (E a partir deste mês inativados).
-* REFERENCIA_max >= 2020-08-01 AND REFERENCIA_min <= 2020-08-01 -> Quantidade de alvarás ativos no mês de referência 2020-08-01 
 
 ### Alvarás Dashboard 
 
-A aplicação pode ser encontrada na pasta alvaras/alvarasdash. 
-O arquivo docker-compose.yml pode ser usado para construir o container e rodar a aplicação alvarasdash e o serviço REDIS (imagem oficial dockerhub) usado pela aplicação para cache dos dados.
+A aplicação (dash) pode ser encontrada na pasta alvaras/alvarasdash.
+Para rodar é necessário um serviço Redis. O docker-compose.yml inicia o redis e a aplicação: `docker compose build && docker compose up` 
+
+É necessário prover um [token do Mapbox](https://account.mapbox.com/access-tokens/). Crie um arquivo .mapbox.token na pasta alvaradash/src com o token (apenas o token). 
 
 A aplicação lê os dados disponíveis no dataset, e mantem uma visão dos dados em um serviço *Redis*. 
 A variável de ambiente *HOME_BUCKET* pode ser usada para carregar o arquivo de outro local (ver docker-compose.yml)
 Obs: pode mudar o local do dataset, mas o nome do arquivo `base_alvaras_curitiba.parquet` na pasta indicada não pode ser alterado.
-
-É necessário prover um [token do Mapbox](https://account.mapbox.com/access-tokens/). Crie um arquivo .mapbox.token na pasta alvaradash/src com o token (apenas o token). 
