@@ -17,7 +17,7 @@ grid = html.Div([
                 
                 Com o objetivo de facilitar o uso dos dados abertos publicados no Portal, foi gerado um novo dataset consolidado e enriquecido com algumas informações.
                 
-                [Neste repositório](https://bitbucket.org/sidegoals/alvaras/src/master/) você encontra os seguintes artefatos.
+                [Neste repositório](https://github.com/marstival/alvaracwb) você encontra os seguintes artefatos.
 
                 * __Dataset__ transformado e enriquecido com algumas informações
                 * __Dashboard__ para uma visualização rápida da base (esta aplicação)
@@ -30,14 +30,13 @@ grid = html.Div([
                 acessado por meio do [Portal de Dados Abertos de Curitiba](https://www.curitiba.pr.gov.br/dadosabertos/busca/). 
 
                 Os dados são disponibilizados mensalmente no Portal, contendo apenas os alvarás ativos no momento da geração do arquivo. 
-                                
-                Para analisar o histórico de ativações e encerramentos de alvarás ao longo dos meses,
-                foi necessário processar os arquivos referentes aos meses passados (com a "foto" da situação a cada mês). 
-                No dataset transformado consolidamos os dados históricos de jan/2017 em diante.
 
-                Além de correções diversas, o dataset conta também com novas informações, como a __geo localização__ do endereço de cada alvará.
+                Para analisar o histórico de ativações e encerramentos de alvarás ao longo dos meses,
+                são combinados os arquivos referentes aos meses anteriores (com a "foto" da situação a cada mês). 
                 
-                Esta aplicação, o dataset, e os scripts usados para transformar os dados originais estão disponíveis [neste repositório](https://bitbucket.org/sidegoals/alvaras/src/master/).              
+                O dataset foi enriquecido com novas informações, como a __geo localização__ do endereço de cada alvará.
+                
+                Esta aplicação, o dataset, e os scripts usados para transformar os dados originais estão disponíveis [neste repositório](https://github.com/marstival/alvaracwb).              
                 
                 *O Portal de Dados Abertos de Curitiba e o órgão ou entidade de onde foram acessados os dados não garantem sua autenticidade, qualidade, integridade e atualidade após terem sido disponibilizados para uso secundário.*
     
