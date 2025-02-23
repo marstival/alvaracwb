@@ -28,7 +28,7 @@ O arquivo final consolida e agrupa os arquivos da base histórica, e inclui algu
 |---|---|
 |Campo (novo) | Descrição dos campos adicionados ao dataset |
 |*REFERENCIA_min*| Data da primeira ocorrência nas extrações;|
-|*REFERENCIA_max*| última ocorrência nas extrações mensais. Se REFERENCIA_max == "data da última extração", significa que está ainda ativo; Caso contrário, representa a data em que esteve ativo pela última vez (considero como data, ou mês, em que deixou de ter uma alvará ativo) |
+|*REFERENCIA_max*| última ocorrência nas extrações mensais. Se REFERENCIA_max == "data da última extração", significa que está ainda ativo |
 |ATIVO| bool - apenas simplifica as consultas; True se REFERENCIA_max == "data da última extração", caso contrário False |
 |*point*| Localização geográfica do endereço (tupla). Além dos campos *address* e *location* |
 |*TEMPO_ATIVIDADE*| Tempo de atividade em meses, considera a diferença da data de início da atividade (*INICIO_ATIVIDADE*) e a data em que o alavará deixou de estar ativo (*REFERENCIA_max*)  |
@@ -44,10 +44,8 @@ Para rodar é necessário um serviço Redis. O docker-compose.yml inicia o redis
 #### Screenshot
 [View Dashboard Screenshot](https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf)
 
-<embed src="https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf" type="application/pdf" />
 
-or
-
-![screenshot](https://github.com/marstival/alvaracwb/blob/ff797544dcd21308ab16f2bc306104e91a030f1a/Dash%20screenshot.pdf)
+![alt text](image.png)
 
 
+![alt text](image-1.png)
