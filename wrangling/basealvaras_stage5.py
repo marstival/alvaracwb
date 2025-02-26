@@ -34,9 +34,12 @@ df['SUBCLASS'] = df.CNAE_ATIVIDADE_PRINCIPAL.apply(transform_value)
 df = pd.merge(df, dfcnae, on='SUBCLASS', how='left')
 
 #%%
-df.to_parquet(staging_data_home+'stages/base_alvaras_stage05.parquet')
+df["DATA_EMISSAO"] = df["DATA_EMISSAO"].astype("datetime64[ms]")
+df["INICIO_ATIVIDADE"] = df["INICIO_ATIVIDADE"].astype("datetime64[ms]")
+df["REFERENCIA_max"] = df["REFERENCIA_max"].astype("datetime64[ms]")
+df["REFERENCIA_min"] = df["REFERENCIA_min"].astype("datetime64[ms]")
+df["DATA_EXPIRACAO"] = df["DATA_EXPIRACAO"].astype("datetime64[ms]")
 
-df.to_csv(staging_data_home+'stages/base_alvaras_stage05.csv', sep=';', encoding='utf-8', index=False)
 
 #%%
 # cria um backup do arquivo com a geo localizacao dos enderecos
